@@ -4,15 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-
+import { AddlinkComponent } from './addlink/addlink.component';
+import { FooterComponent } from './footer/footer.component';
+import { MaterialModule } from '@angular/material';
+import { FooterHoverComponent } from './footer-hover/footer-hover.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddlinkComponent,
+    FooterComponent,
+    FooterHoverComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule, MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
