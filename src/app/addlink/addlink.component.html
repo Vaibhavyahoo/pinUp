@@ -1,14 +1,6 @@
 <div class="container">
-  <div class="mainCard">
-    <div class="verticalLine">
-      <div class="card">
-        <div class="plus">
-          <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></span>
-        </div>
-        <p>add pin</p>
-      </div>
 
-      <span *ngFor="let info of information">
+      <div class= "col-md-4 col-sm-4 col-lg-4 col-xs-12" *ngFor="let info of information">
    <div class="check">
        <div class="row">
          <div class="col-sm-4">
@@ -46,11 +38,17 @@
       <app-footer></app-footer>
 </div>
   </div>
-</span>
+</div>
 
-
+<div class="col-md-4 col-sm-4 col-lg-4 col-xs-12">
+  <div class="check">
+  <div class="plus">
+    <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#myModal"></span>
+  </div>
+  <p>add pin</p>
 </div>
 </div>
+
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -63,8 +61,8 @@
 
       <div class="modal-body">
         <div class="row">
-          <input type="text" class="link" #newInfo/>
-          <button type="button" class="btn" (click)=addInfo(newInfo)>Add</button>
+          <input #textbox type="text" class="link" />
+          <button type="button" class="btn" (click)=addInfo(textbox.value)>Add</button>
 
         </div>
       </div>

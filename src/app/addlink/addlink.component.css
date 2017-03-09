@@ -1,3 +1,4 @@
+
 .card
 {
   width: 219px;
@@ -30,8 +31,8 @@ p{
   border-left: 1px solid grey;
   margin-left:10%;
   margin-top:10%;
-  width: 196px;
-height: 500px;
+  width: 1000px;
+height: auto;
 }
 .row{
   margin-left:5px;

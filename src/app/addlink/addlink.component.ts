@@ -15,9 +15,10 @@ export class AddlinkComponent implements OnInit {
 information:any =[];
 date=new Date();
 
-   addInfo(newInfo:string) {
+   addInfo(data) {
+     console.log(data)
            this.Title="Angular";
-         this.information.push(newInfo);
+         this.information.push(data);
 
    }
 
