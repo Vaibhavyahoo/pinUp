@@ -8,6 +8,7 @@
   background-color: #D8D8D8;
   box-shadow: 1 1 2 0 rgba(0, 0, 0, 50%);
   margin-left: 20px;
+/*overflow: hidden;*/
 }
 .glyphicon{
   color:white;
@@ -99,6 +100,7 @@ text-align: left;
 color: #020202;
 font-family: LucidaGrande-Bold;
 font-size: 14px;
+
 }
 
 .github-prof-image {
@@ -173,6 +175,27 @@ font-size: 18px;
 }
 
 .likes{
+  width: 41px;
+height: 12px;
+opacity: 1;
+text-align: left;
+color: #030303;
+font-family: LucidaGrande-Bold;
+font-size: 10px;
+}
+
+
+.ion-thumbsdown{
+  width: 14px;
+height: 18px;
+opacity: 1;
+text-align: left;
+color: #1ABAD2;
+font-family: Ionicons;
+font-size: 18px;
+}
+
+.unlike{
   width: 41px;
 height: 12px;
 opacity: 1;

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { HttpService } from './services/http.service'
 import { AppComponent } from './app.component';
 import { AddlinkComponent } from './addlink/addlink.component';
 import { FooterComponent } from './footer/footer.component';
@@ -20,7 +20,7 @@ import { FooterHoverComponent } from './footer-hover/footer-hover.component';
     FormsModule,
     HttpModule, MaterialModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
