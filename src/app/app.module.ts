@@ -8,12 +8,14 @@ import { AddlinkComponent } from './addlink/addlink.component';
 import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from '@angular/material';
 import { FooterHoverComponent } from './footer-hover/footer-hover.component';
+import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 @NgModule({
   declarations: [
     AppComponent,
     AddlinkComponent,
     FooterComponent,
-    FooterHoverComponent
+    FooterHoverComponent,
+    FileUploaderComponent
   ],
   imports: [
     BrowserModule,

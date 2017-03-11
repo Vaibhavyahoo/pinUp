@@ -4,10 +4,10 @@ import { Http,Response,Headers } from '@angular/http';
 export class HttpService {
 
   constructor(private http: Http ) { }
-  private baseUrl ='http://192.168.0.33:3030';
+  private baseUrl ='http://192.168.0.59:3030';
 
   getData(){
-     return this.http.get(this.baseUrl+'/admin/getRecentPinup')
+     return this.http.get(this.baseUrl+'/admin/getRecentPinup/0')
      .map((response:Response) => response.json());
 
    }

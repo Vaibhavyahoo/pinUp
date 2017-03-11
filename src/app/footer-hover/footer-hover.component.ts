@@ -22,16 +22,4 @@ export class FooterHoverComponent implements OnInit {
   ngOnInit() {
   }
 
-  onMouseOver(){
-    let part = this.el.nativeElement.querySelector('.panel  >  div');
-          this.renderer.setElementStyle(part, 'display', 'block');
-          this.ishovering = true;
-console.log("chek")
   }
-  onMouseOut(){
-    let part = this.el.nativeElement.querySelector('.panel > div');
-       this.renderer.setElementStyle(part, 'display', 'none');
-       this.ishovering = false;
-    console.log("unchk")
-  }
-}

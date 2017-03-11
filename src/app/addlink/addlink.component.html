@@ -8,7 +8,7 @@
         </div>
         <div class="col-sm-8">
           <div class="Angular2" data-toggle="tooltip" title={{info.title}}>{{info.title }}</div>
-          <span class="Desc">New framework has</span><br>
+          <span class="Desc">New framework has major changes</span><br>
           <span class="date">{{info.createdAt | date}}</span><br>
           <!-- <p class="web">{{info.pinupUrl}}</p> -->
           <a class="web" href="#" data-toggle="tooltip" title={{info.pinupUrl}}>{{info.pinupUrl}}</a>
@@ -27,15 +27,16 @@
 
         </div>
         <div class="col-sm-3">
-          <div class="views glyphicon glyphicon-eye-open" id="views">
-            <p class="eye">{{info.views}} Views</p>
-          </div>
-        </div>
-        <div class="col-sm-3">
           <div class="ion-thumbsdown">
             <p class="unlike">{{info.unlike}} Unlike</p>
           </div>
         </div>
+        <div class="col-sm-3">
+          <div class="views glyphicon glyphicon-eye-open" id="views">
+            <p class="eye">{{info.views}} Views</p>
+          </div>
+        </div>
+
         <div class="hover123">
           <app-footer-hover></app-footer-hover>
         </div>
