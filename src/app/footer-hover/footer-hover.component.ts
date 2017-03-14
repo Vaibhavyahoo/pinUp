@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UpdateService} from '../services/update.service'
 import {
     Renderer,
     HostListener,
@@ -16,10 +17,24 @@ import {
 })
 export class FooterHoverComponent implements OnInit {
   private ishovering: boolean;
-  constructor(private el: ElementRef,
-                 private renderer: Renderer) { }
+// @Input() name:string;
+  constructor(private update:UpdateService) {
+  // console.log("check"+this.name)
+}
 
   ngOnInit() {
+
   }
+
+   edit(){
+     console.log("edit called");
+     this.update.getData()
+     .subscribe(
+       (data) => {
+      console.log(data)
+         //json() extract the data instead of use in service
+                                                      //
+     })
+   }
 
   }

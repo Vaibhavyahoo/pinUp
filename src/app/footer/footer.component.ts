@@ -23,6 +23,6 @@ myForm: FormGroup;
   }
 
   onSubmit(){
-    console.log(this.myForm);
+    console.log("hiiiii",this.myForm.value);
   }
 }

@@ -8,7 +8,8 @@ import {HttpService} from '../services/http.service';
 })
 export class AddlinkComponent implements OnInit {
 public myPinupData;
-  constructor(private http:HttpService) { }
+    helloName: string="AnOtherWorld";
+constructor(private http:HttpService) { }
 
   ngOnInit() {
     this.http.getData()
@@ -17,7 +18,7 @@ public myPinupData;
       let myData=data;
       console.log(myData.pinupData)
       this.myPinupData= myData.pinupData;  //json() extract the data instead of use in service
-                                                   //
+        console.log(this.myPinupData[0].pinupID)                                           //
   })
   }
   Title:string;
