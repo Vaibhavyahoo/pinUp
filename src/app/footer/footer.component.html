@@ -1,4 +1,3 @@
-
 <!-- line modal -->
 <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -8,47 +7,72 @@
         <h3 class="modal-title" id="lineModalLabel">title</h3>
       </div>
       <div class="modal-body">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
         <div class="row">
-          <div class="col-sm-4">
-            <div class="image">
 
-    <app-file-uploader ></app-file-uploader>
+          <div class="col-sm-4">
+            <div class="image"  >
+              <app-file-uploader></app-file-uploader>
             </div>
           </div>
+
           <div class="col-sm-8">
             <div class="row">
-              <input type="text" name="name" class="imageType" value="" placeholder="image should be .jpg or .png">
-              <button type="button" class="btn btn-success">Browse</button>
+              <div class="form-group">
+                <input type="text" name="name" class="imageType form-control" formControlName="imageName" placeholder="image should be .jpg or .png">
+                <!-- <button type="button" class="btn btn-success">Browse</button> -->
+              </div>
             </div>
             <div class="row">
-              <input type="text" name="name" class="Tag" value="" placeholder="Tag">
+              <div class="form-group">
+              <input type="text" name="name" class="Tag form-control" formControlName="tag"  placeholder="Tag">
             </div>
+          </div>
             <div class="row">
-              <input type="text" name="name" class="keyword" value="" placeholder="Keyword">
+              <div class="form-group">
+                <select class="selectpicker form-control"  formControlName="selectpicker" style="margin-bottom:-6.8px">
+       <option value="" selected disabled>Please select</option>
+        <option>Java</option>
+        <option>Angular</option>
+        <option>Android</option>
+        <option>Ios</option>
+        <option>Angular 2 </option>
+        <option>Testing</option>
+      </select>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <input type="text" name="name" class="website" value="" placeholder="Website">
+
+         <div class="row">
+           <div class="form-group">
+          <input type="text" name="name" class="website form-control" formControlName="website" placeholder="Website">
         </div>
-        <div class="row">
-          <input type="text" name="name" class="link" value="" placeholder="Link">
-        </div>
-        <div class="row">
-          <input type="text" name="name" class="desc" value="" placeholder="Description">
-        </div>
-        <p>
-        <!-- <app-file-uploader [imageSrc]='link'></app-file-uploader > -->
-        </p>
       </div>
+
+        <div class="row">
+          <div class="form-group">
+          <input type="text" name="name" class="link form-control"  formControlName="link" placeholder="Link">
+        </div>
+      </div>
+
+        <div class="row">
+          <div class="form-group">
+          <textarea name="name" class="desc form-control" formControlName="desc" placeholder="Description">
+        </textarea>
+         </div>
     </div>
+
 
     <div class="modal-footer">
       <div class="btn-group-justified" aria-label="group button">
         <div class="btn">
-          <button type="button" id="saveImage" class="btn btn-success center-block" data-action="save" role="button">Save</button>
+          <button type="submit"  class="btn btn-primary">Submit</button>
         </div>
       </div>
     </div>
-  </div>
+  </form>
+</div>
+</div>
+</div>
 </div>

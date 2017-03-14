@@ -22,7 +22,7 @@ export class FileUploaderComponent implements OnInit {
         loaded: boolean = false;
         imageLoaded: boolean = false;
         @Input()  imageSrc: string = '';
-
+           fileName:any;
         handleDragEnter() {
             this.dragging = true;
         }
@@ -44,7 +44,10 @@ export class FileUploaderComponent implements OnInit {
 
         handleInputChange(e) {
             var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+             console.log(file);
 
+              this.fileName = file.name;
+              console.log(this.fileName)
             var pattern = /image-*/;
             var reader = new FileReader();
 

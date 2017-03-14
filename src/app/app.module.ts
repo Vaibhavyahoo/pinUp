@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MaterialModule } from '@angular/material';
 import { FooterHoverComponent } from './footer-hover/footer-hover.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,7 @@ import { FileUploaderComponent } from './file-uploader/file-uploader.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule, MaterialModule
+    HttpModule, MaterialModule,  ReactiveFormsModule  
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

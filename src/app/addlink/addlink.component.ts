@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import {HttpService} from '../services/http.service';
 @Component({

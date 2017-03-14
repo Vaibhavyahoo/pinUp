@@ -3,7 +3,7 @@
     [style.outlineColor]="dragging ? activeColor : baseColor"
     (dragenter)="handleDragEnter()"
     (dragleave)="handleDragLeave()"
-    (drop)="handleDrop($event)">
+    (drop)="handleDrop($event)" data-toggle="tooltip" title="click here for browse image">
 
     <i class="icon icon-upload"
         [style.color]="dragging
@@ -16,8 +16,9 @@
         [class.loaded]="imageLoaded"/>
 
     <input type="file" name="file" accept="image/*"
-        (change)="handleInputChange($event)">
+        (change)="handleInputChange($event)"/>
 
 </label>
-<label for="liink">link :</label>
-<input type="text" value="{{imageSrc}}" class="description row" data-toggle="tooltip" title={{imageSrc}}>
+<div>
+  <p>{{fileName}}</p>
+</div>
