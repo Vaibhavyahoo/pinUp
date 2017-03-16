@@ -7,29 +7,42 @@ import {UpdateService} from '../services/update.service'
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+
 myForm: FormGroup;
   constructor(private update:UpdateService) {
     this.myForm = new FormGroup({
         'imageUrl': new FormControl('',Validators.required),
-        'tag': new FormControl('',Validators.required),
+        'tags': new FormControl('',Validators.required),
       'selectpicker':new FormControl('', Validators.required),
       'title': new FormControl(''),
       'link':new FormControl('', Validators.required),
-      'desc':new FormControl('', Validators.required),
+      'description':new FormControl('', Validators.required),
 
     });
+    // console.log("this.pinupID",this.pinupID);
   }
 
-  @Input() imageUrl:any;
+
+
+  private showMessage;
+  onNotifyClicked(message:string){
+    console.log(message);
+    this.showMessage = message ;
+  }
+
+
 
   ngOnInit() {
 
   }
 
-
+  //
   onSubmit(){
     console.log("hiiiii",this.myForm.value);
-    this.update.sendData(this.myForm.value)
+    this.update.sendData(this.myForm.value).subscribe(data=>{
+      console.log(data)
+    }
+    )
     console.log(this.myForm.value)
   }
 

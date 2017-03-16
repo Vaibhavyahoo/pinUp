@@ -1,4 +1,4 @@
-import { Component, OnInit,Input} from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-file-uploader',
@@ -8,12 +8,14 @@ import { Component, OnInit,Input} from '@angular/core';
 })
 export class FileUploaderComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+}
 
   ngOnInit() {
-  }
+}
 
-  activeColor: string = 'green';
+        activeColor: string = 'green';
         baseColor: string = '#ccc';
         overlayColor: string = 'rgba(255,255,255,0.5)';
         iconColor:string='';
@@ -21,8 +23,12 @@ export class FileUploaderComponent implements OnInit {
         dragging: boolean = false;
         loaded: boolean = false;
         imageLoaded: boolean = false;
-       imageSrc: string = '';
-          public  fileName:any;
+        imageSrc: string = '';
+        file:any;
+        public fileName:any;
+
+@Output() notify:EventEmitter<string> = new EventEmitter<string>();
+
         handleDragEnter() {
             this.dragging = true;
         }
@@ -43,15 +49,13 @@ export class FileUploaderComponent implements OnInit {
         }
 
         handleInputChange(e) {
-            var file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
-             console.log(file);
-
-              this.fileName = file.name;
-              console.log(this.fileName)
+            this.file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
+            this.fileName = this.file.name;
+            this.notify.emit(this.fileName);
             var pattern = /image-*/;
             var reader = new FileReader();
 
-            if (!file.type.match(pattern)) {
+            if (!this.file.type.match(pattern)) {
                 alert('invalid format');
                 return;
             }
@@ -59,12 +63,12 @@ export class FileUploaderComponent implements OnInit {
             this.loaded = false;
 
             reader.onload = this._handleReaderLoaded.bind(this);
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(this.file);
         }
 
         _handleReaderLoaded(e) {
             var reader = e.target;
-        this.imageSrc = reader.result;
+            this.imageSrc = reader.result;
             this.loaded = true;
         }
 
@@ -80,6 +84,12 @@ export class FileUploaderComponent implements OnInit {
             if (this.imageSrc.length === 0) {
                 this.iconColor = this.baseColor;
             }
+        }
+        onClick(message:string){
+          console.log(message);
+          // console.log("hii",this.file);
+          this.notify.emit(message);
+          // this.notify.emit(this.lastName);
         }
 
 

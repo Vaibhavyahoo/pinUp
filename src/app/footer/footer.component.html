@@ -13,20 +13,23 @@
 
           <div class="col-sm-4">
             <div class="image"  >
-              <app-file-uploader></app-file-uploader>
+              <div>
+              <app-file-uploader (notify)="onNotifyClicked($event)"></app-file-uploader>
+
+              </div>
             </div>
           </div>
 
           <div class="col-sm-8">
             <div class="row">
               <div class="form-group">
-                <input type="text" name="imageUrl" class="imageType form-control" value="imageUrl" formControlName="imageUrl" placeholder="image should be .jpg or .png">
+                <input type="text" name="imageUrl" class="imageType form-control" value="{{showMessage}}" formControlName="imageUrl" placeholder="image should be .jpg or .png">
                 <!-- <button type="button" class="btn btn-success">Browse</button> -->
               </div>
             </div>
             <div class="row">
               <div class="form-group">
-              <input type="text" name="name" class="Tag form-control" formControlName="tag"  placeholder="Tag">
+              <input type="text" name="name" class="Tag form-control" formControlName="tags"  placeholder="Tag">
             </div>
           </div>
             <div class="row">
@@ -59,7 +62,7 @@
 
         <div class="row">
           <div class="form-group">
-          <textarea name="name" class="desc form-control" formControlName="desc" placeholder="Description">
+          <textarea name="name" class="desc form-control" formControlName="description" placeholder="Description">
         </textarea>
          </div>
     </div>
@@ -68,12 +71,11 @@
     <div class="modal-footer">
       <div class="btn-group-justified" aria-label="group button">
         <div class="btn">
-          <button type="submit" [disabled]="!myForm.valid"  class="btn btn-primary">Submit</button>
+          <button type="submit"  class="btn btn-primary">Submit</button>
         </div>
       </div>
-    </div>
+  </div>
   </form>
-  <!-- <p>{{showMessage}}</p> -->
 </div>
 </div>
 </div>

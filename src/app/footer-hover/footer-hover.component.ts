@@ -17,9 +17,9 @@ import {
 })
 export class FooterHoverComponent implements OnInit {
   private ishovering: boolean;
-
+  @Input() pinupID;
   constructor(private update:UpdateService) {
-  
+
 }
 
   ngOnInit() {
@@ -27,11 +27,13 @@ export class FooterHoverComponent implements OnInit {
   }
 
    edit(){
-     console.log("edit called");
-     this.update.getData()
+     console.log("edit called",this.pinupID);
+     this.update.getData(this.pinupID)
+     .subscribe(
+     (data) => {
+       let myData = data;
+       console.log(data);
 
-         //json() extract the data instead of use in service
-                                                      //}
-
-  }
+  })
+}
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import {HttpService} from '../services/http.service';
 import {UpdateService} from '../services/update.service'
@@ -9,44 +9,37 @@ import {UpdateService} from '../services/update.service'
   styleUrls: ['./addlink.component.css']
 })
 export class AddlinkComponent implements OnInit {
-public myPinupData;
-  
-      public myId:any;
-constructor(private http:HttpService,private update:UpdateService) { }
+  public myPinupData;
+ myId: string="something";
 
 
-
+  constructor(private http: HttpService, private update: UpdateService) { }
   ngOnInit() {
     this.http.getData()
-  .subscribe(
-    (data) => {
-      let myData=data;
+      .subscribe(
+      (data) => {
+        let myData = data;
 
-      console.log(myData.pinupData)
-      this.myPinupData= myData.pinupData;  //json() extract the data instead of use in service
+        console.log(myData.pinupData)
+        this.myPinupData = myData.pinupData;  //json() extract the data instead of use in service
         // console.log(this.myPinupData[0].pinupID)
-        this.myId=this.myPinupData[0].pinupID;
+        this.myId = this.myPinupData[0].pinupID;
         // console.log(this.myId);
+      })
 
-
-                                        //
-  })
   }
-  Title:string;
-information:any =[];
-date=new Date();
+  Title: string;
+  information: any = [];
+  date = new Date();
 
-   addInfo(data) {
-     this.http.sendData(data);
-     console.log(data);
-           this.Title="Angular";
-         this.information.push(data);
+  addInfo(data) {
+    this.http.sendData(data);
+    console.log(data);
+
+    this.information.push(data);
+}
 
 
-   }
 
-  //  sendPinupID(){
-  // this.update.sendData(data);
-  //  }
 
 }
