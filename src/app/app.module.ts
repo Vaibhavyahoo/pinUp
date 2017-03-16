@@ -10,7 +10,8 @@ import { MaterialModule } from '@angular/material';
 import { FooterHoverComponent } from './footer-hover/footer-hover.component';
 import { FileUploaderComponent } from './file-uploader/file-uploader.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {UpdateService} from './services/update.service'
+import {UpdateService} from './services/update.service';
+import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import {UpdateService} from './services/update.service'
     FormsModule,
     HttpModule, MaterialModule,  ReactiveFormsModule
   ],
+   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [HttpService,UpdateService],
   bootstrap: [AppComponent]
 })

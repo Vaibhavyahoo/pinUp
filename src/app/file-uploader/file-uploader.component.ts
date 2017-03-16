@@ -21,8 +21,8 @@ export class FileUploaderComponent implements OnInit {
         dragging: boolean = false;
         loaded: boolean = false;
         imageLoaded: boolean = false;
-        @Input()  imageSrc: string = '';
-           fileName:any;
+       imageSrc: string = '';
+          public  fileName:any;
         handleDragEnter() {
             this.dragging = true;
         }
@@ -81,4 +81,6 @@ export class FileUploaderComponent implements OnInit {
                 this.iconColor = this.baseColor;
             }
         }
+
+
 }

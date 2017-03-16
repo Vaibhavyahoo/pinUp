@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
+import {UpdateService} from '../services/update.service'
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,22 +8,30 @@ import { FormGroup,FormControl, Validators } from '@angular/forms';
 })
 export class FooterComponent implements OnInit {
 myForm: FormGroup;
-  constructor() {
+  constructor(private update:UpdateService) {
     this.myForm = new FormGroup({
-        'imageName': new FormControl('',Validators.required),
+        'imageUrl': new FormControl('',Validators.required),
         'tag': new FormControl('',Validators.required),
       'selectpicker':new FormControl('', Validators.required),
-      'website': new FormControl(''),
+      'title': new FormControl(''),
       'link':new FormControl('', Validators.required),
       'desc':new FormControl('', Validators.required),
 
     });
   }
 
+  @Input() imageUrl:any;
+
   ngOnInit() {
+
   }
+
 
   onSubmit(){
     console.log("hiiiii",this.myForm.value);
+    this.update.sendData(this.myForm.value)
+    console.log(this.myForm.value)
   }
+
+
 }

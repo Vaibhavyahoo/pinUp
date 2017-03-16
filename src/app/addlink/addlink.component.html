@@ -37,7 +37,7 @@
         </div>
 
         <div class="hover123">
-          <app-footer-hover ></app-footer-hover>
+          <app-footer-hover name='helloName'></app-footer-hover>
         </div>
       </div>
       <div>
@@ -74,6 +74,10 @@
         <div class="row">
           <input #textbox type="text" class="link" />
           <button type="button" class="btn" (click)=addInfo(textbox.value)>Add</button>
+
+        </div>
+        <div>
+<app-file-uploader [name]="helloName"></app-file-uploader>
 
         </div>
       </div>

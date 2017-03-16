@@ -17,9 +17,9 @@ import {
 })
 export class FooterHoverComponent implements OnInit {
   private ishovering: boolean;
-// @Input() name:string;
+
   constructor(private update:UpdateService) {
-  // console.log("check"+this.name)
+  
 }
 
   ngOnInit() {
@@ -29,12 +29,9 @@ export class FooterHoverComponent implements OnInit {
    edit(){
      console.log("edit called");
      this.update.getData()
-     .subscribe(
-       (data) => {
-      console.log(data)
+
          //json() extract the data instead of use in service
-                                                      //
-     })
-   }
+                                                      //}
 
   }
+}

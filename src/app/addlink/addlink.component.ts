@@ -1,6 +1,8 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import {HttpService} from '../services/http.service';
+import {UpdateService} from '../services/update.service'
+
 @Component({
   selector: 'app-addlink',
   templateUrl: './addlink.component.html',
@@ -8,17 +10,26 @@ import {HttpService} from '../services/http.service';
 })
 export class AddlinkComponent implements OnInit {
 public myPinupData;
-    helloName: string="AnOtherWorld";
-constructor(private http:HttpService) { }
+  
+      public myId:any;
+constructor(private http:HttpService,private update:UpdateService) { }
+
+
 
   ngOnInit() {
     this.http.getData()
   .subscribe(
     (data) => {
       let myData=data;
+
       console.log(myData.pinupData)
       this.myPinupData= myData.pinupData;  //json() extract the data instead of use in service
-        console.log(this.myPinupData[0].pinupID)                                           //
+        // console.log(this.myPinupData[0].pinupID)
+        this.myId=this.myPinupData[0].pinupID;
+        // console.log(this.myId);
+
+
+                                        //
   })
   }
   Title:string;
@@ -31,6 +42,11 @@ date=new Date();
            this.Title="Angular";
          this.information.push(data);
 
+
    }
+
+  //  sendPinupID(){
+  // this.update.sendData(data);
+  //  }
 
 }
