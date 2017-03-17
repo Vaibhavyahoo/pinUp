@@ -1,15 +1,19 @@
 import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
-import {UpdateService} from '../services/update.service'
+import {UpdateService} from '../services/update.service';
+import {HttpService} from '../services/http.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  @Input() data:any;
+// updateData:any;
 
 myForm: FormGroup;
-  constructor(private update:UpdateService) {
+  constructor(private update:UpdateService,private http: HttpService) {
+
     this.myForm = new FormGroup({
         'imageUrl': new FormControl('',Validators.required),
         'tags': new FormControl('',Validators.required),
@@ -19,7 +23,7 @@ myForm: FormGroup;
       'description':new FormControl('', Validators.required),
 
     });
-    // console.log("this.pinupID",this.pinupID);
+
   }
 
 
@@ -27,12 +31,16 @@ myForm: FormGroup;
   private showMessage;
   onNotifyClicked(message:string){
     console.log(message);
-    this.showMessage = message ;
+    // console.log("this..hihi",this.piupObject.tags);
+    // // this.updateData=this.piupObject.tags;
+    // // console.log(this.updateData)
+    // // this.showMessage = message ;
   }
 
 
 
   ngOnInit() {
+    console.log('success -->',this.data);
 
   }
 
@@ -45,6 +53,8 @@ myForm: FormGroup;
     )
     console.log(this.myForm.value)
   }
+
+
 
 
 }

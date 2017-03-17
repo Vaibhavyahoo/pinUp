@@ -18,6 +18,8 @@ import {
 export class FooterHoverComponent implements OnInit {
   private ishovering: boolean;
   @Input() pinupID;
+  public maindata:any;
+  info:any;
   constructor(private update:UpdateService) {
 
 }
@@ -33,7 +35,11 @@ export class FooterHoverComponent implements OnInit {
      (data) => {
        let myData = data;
        console.log(data);
-
+        this.info = data;
+        console.log(this.info.pinupData[0]);
+//
+this.maindata=this.info.pinupData[0];
+console.log(this.maindata.like)
   })
 }
 }
