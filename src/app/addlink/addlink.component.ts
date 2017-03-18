@@ -10,6 +10,7 @@ import {UpdateService} from '../services/update.service'
 })
 export class AddlinkComponent implements OnInit {
   public myPinupData;
+
  myId: string="something";
 
 
@@ -22,8 +23,8 @@ export class AddlinkComponent implements OnInit {
 
         console.log(myData.pinupData)
         this.myPinupData = myData.pinupData;  //json() extract the data instead of use in service
-        // console.log(this.myPinupData[0].pinupID)
-        this.myId = this.myPinupData[0].pinupID;
+        console.log(this.myPinupData)  //all obect
+        // this.myId = this.myPinupData[0].pinupID;
         // console.log(this.myId);
       })
 
