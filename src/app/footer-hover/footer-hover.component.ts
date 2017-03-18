@@ -20,9 +20,6 @@ export class FooterHoverComponent implements OnInit {
   @Input() pinupID;
   public maindata:any;
   info:any;
-
-
-  
   constructor(private update:UpdateService) {
 
 }
@@ -43,7 +40,6 @@ this.update.getData(this.pinupID)
     //
     this.maindata = this.info.pinupData[0];
     console.log(this.maindata);
-
   })
 }
 }

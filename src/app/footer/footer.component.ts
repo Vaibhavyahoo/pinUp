@@ -36,10 +36,8 @@ myForm: FormGroup;
   onNotifyClicked(message:string){
     console.log(message);
    this.showMessage=message;
+
   }
-
-
-
   ngOnInit() {
     // console.log('success -->',this.data);
     // this.pinupID=this.data;
@@ -58,9 +56,6 @@ myForm: FormGroup;
     this.updateData=this.data;
     console.log(this.updateData);
     }
-
-
-
   onSubmit(){
     console.log("hiiiii",this.myForm.value);
     this.update.sendData(this.myForm.value).subscribe(data=>{
