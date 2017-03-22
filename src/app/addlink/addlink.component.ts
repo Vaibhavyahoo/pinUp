@@ -25,7 +25,7 @@ export class AddlinkComponent implements OnInit {
         // console.log(myData.pinupData)
         this.myPinupData = myData.pinupData;  //json() extract the data instead of use in service
         console.log(this.myPinupData)  //all obect
-        
+
       })
 
   }
