@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UpdateService} from '../services/update.service'
+import {UpdateService} from '../services/update.service';
+import { FormGroup,FormControl, Validators } from '@angular/forms';
+import {HttpService} from '../services/http.service';
 import {
     Renderer,
     HostListener,
@@ -20,12 +22,36 @@ export class FooterHoverComponent implements OnInit {
   @Input() pinupID;
   public maindata:any;
   info:any;
-  constructor(private update:UpdateService) {
+  myForm: FormGroup;
+    constructor(private update:UpdateService,private http: HttpService) {
 
-}
+      this.myForm = new FormGroup({
+          'imageUrl': new FormControl('',Validators.required),
+          'tags': new FormControl('',Validators.required),
+        'selectpicker':new FormControl('', Validators.required),
+        'title': new FormControl(''),
+        'link':new FormControl('', Validators.required),
+        'description':new FormControl('', Validators.required),
 
+      });
+
+    }
   ngOnInit() {
 
+  }
+  // private showMessage;
+  // onNotifyClicked(message:string){
+  //   console.log(message);
+  //
+  // }
+
+  onSubmit(){
+    console.log("hiiiii",this.myForm.value);
+    this.update.sendData(this.myForm.value).subscribe(data=>{
+      console.log(data)
+    }
+    )
+    console.log(this.myForm.value)
   }
 
    edit(){
@@ -38,7 +64,7 @@ export class FooterHoverComponent implements OnInit {
         this.info = data;
         console.log(this.info.pinupData[0]);
 //
-this.maindata=this.info.pinupData[0];
+this.maindata=this.info.pinupData[0].imageUrl;
 console.log(this.maindata.like)
   })
 }
